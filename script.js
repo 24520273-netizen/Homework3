@@ -38,3 +38,45 @@ function updateCountdown() {
 updateCountdown();
 
 setInterval(updateCountdown, 1000);
+const registrationForm = document.querySelector('#registration-form');
+const formStatus = document.querySelector('#form-status');
+
+let formState = 'idle';
+
+function setFormState(state) {
+    formState = state;
+
+    if (state === 'idle') {
+        formStatus.textContent = 'Ready to submit.';
+    }
+
+    if (state === 'submitting') {
+        formStatus.textContent = 'Submitting registration...';
+    }
+
+    if (state === 'success') {
+        formStatus.textContent = 'Registration successful.';
+    }
+
+    if (state === 'error') {
+        formStatus.textContent = 'Registration failed. Please try again.';
+    }
+}
+
+registrationForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const email = document.querySelector('#email').value;
+
+    setFormState('submitting');
+
+    setTimeout(() => {
+        if (email === 'error@example.com') {
+            setFormState('error');
+        } else {
+            setFormState('success');
+        }
+    }, 1500);
+});
+
+setFormState('idle');
