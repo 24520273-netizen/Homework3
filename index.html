@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resilient Event Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <section class="event-card" aria-labelledby="event-title">
+            <p class="eyebrow">Upcoming Event</p>
+
+            <h1 id="event-title">Web Engineering Conference 2026</h1>
+
+            <p>
+                Event starts at
+                <time datetime="2026-12-01T09:00:00Z">
+                    December 1, 2026
+                </time>
+            </p>
+
+            <section
+                class="countdown"
+                aria-label="Time remaining until the event"
+            >
+                <article>
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </article>
+
+                <article>
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </article>
+
+                <article>
+                    <span id="minutes">00</span>
+                    <p>Minutes</p>
+                </article>
+
+                <article>
+                    <span id="seconds">00</span>
+                    <p>Seconds</p>
+                </article>
+            </section>
+
+            <p id="countdown-status" aria-live="polite">
+                Calculating remaining time...
+            </p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
