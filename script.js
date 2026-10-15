@@ -41,6 +41,7 @@ setInterval(updateCountdown, 1000);
 const registrationForm = document.querySelector('#registration-form');
 const formStatus = document.querySelector('#form-status');
 const submitButton = registrationForm.querySelector('button[type="submit"]');
+const registrationMessage = document.querySelector('#registration-message');
 
 let formState = 'idle';
 
@@ -58,10 +59,12 @@ function setFormState(state) {
     }
 
     if (state === 'success') {
-        formStatus.textContent = 'Registration successful.';
-        submitButton.disabled = false;
-    }
+    const name = document.querySelector('#name').value;
 
+    formStatus.textContent = 'Registration successful.';
+    registrationMessage.textContent = `Thank you, ${name}!`;
+    submitButton.disabled = false;
+}
     if (state === 'error') {
         formStatus.textContent = 'Registration failed. Please try again.';
          submitButton.disabled = false;
